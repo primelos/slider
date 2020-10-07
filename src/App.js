@@ -10,6 +10,7 @@ function App() {
     setAutoPlay(0);
   }, []);
 
+  // return <Slider slides={images} autoPlay={2}/>;
   return <Slider slides={images} />;
 }
 
