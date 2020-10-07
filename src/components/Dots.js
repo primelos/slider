@@ -5,17 +5,17 @@ import { css, jsx } from "@emotion/core";
 const Dot = ({ active }) => (
   <span
     css={css`
-        padding: 10px;
-        margin-right: 5px;
-        cursor: pointer;
-        border-radius: 50%;
-        background: ${active ? "black" : "white"};
-        `}
+      padding: 10px;
+      margin-right: 5px;
+      cursor: pointer;
+      border-radius: 50%;
+      background: ${active ? "black" : "white"};
+    `}
   />
 );
 
 const Dots = ({ slides, activeSlide }) => (
-    <div
+  <div
     css={css`
       position: absolute;
       bottom: 25px;
@@ -25,7 +25,7 @@ const Dots = ({ slides, activeSlide }) => (
       justify-content: center;
     `}
   >
-     {slides.map((slide, i) => (
+    {slides.map((slide, i) => (
       <Dot key={slide} active={activeSlide === i} />
     ))}
   </div>
