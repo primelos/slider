@@ -29,7 +29,7 @@ const Slider = ({ slides, autoPlay }) => {
 
   const autoPlayRef = useRef();
   const transitionRef = useRef();
-  const resizeRef = useRef()
+  const resizeRef = useRef();
 
   useEffect(() => {
     autoPlayRef.current = nextSlide;
@@ -39,27 +39,27 @@ const Slider = ({ slides, autoPlay }) => {
 
   useEffect(() => {
     const play = () => {
-      autoPlayRef.current()
+      autoPlayRef.current();
     };
     const smooth = (e) => {
       if (e.target.className.includes("SliderContent")) {
-        transitionRef.current()
+        transitionRef.current();
       }
     };
 
     const resize = () => {
-      resizeRef.current()
-    }
+      resizeRef.current();
+    };
 
     let interval = null;
-    const transitionEnd = window.addEventListener('transitionend', smooth)
-    const onResize = window.addEventListener('resize', resize)
+    const transitionEnd = window.addEventListener("transitionend", smooth);
+    const onResize = window.addEventListener("resize", resize);
 
-    if (autoPlay) interval = setInterval(play, autoPlay * 1000)
+    if (autoPlay) interval = setInterval(play, autoPlay * 1000);
 
     return () => {
-      window.removeEventListener('transitionend', transitionEnd)
-      window.removeEventListener('resize', onResize)
+      window.removeEventListener("transitionend", transitionEnd);
+      window.removeEventListener("resize", onResize);
       if (autoPlay) {
         clearInterval(interval);
       }
@@ -67,12 +67,12 @@ const Slider = ({ slides, autoPlay }) => {
   }, []);
 
   useEffect(() => {
-    if(transition === 0) setState({ ...state, transition: 0.45 })
-  }, [transition])
+    if (transition === 0) setState({ ...state, transition: 0.45 });
+  }, [transition]);
 
   const handleResize = () => {
-    setState({ ...state, translate: getWidth(), transition:0 })
-  }
+    setState({ ...state, translate: getWidth(), transition: 0 });
+  };
 
   const smoothTransition = () => {
     let _slides = [];
@@ -145,7 +145,7 @@ const Slider = ({ slides, autoPlay }) => {
         width={getWidth() * _slides.length}
       >
         {_slides.map((_slide, i) => (
-          <Slide width ={getWidth()} key={_slide + i} content={_slide} />
+          <Slide width={getWidth()} key={_slide + i} content={_slide} />
         ))}
       </SliderContent>
 
